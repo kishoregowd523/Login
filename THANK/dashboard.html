@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body onload="checkSession()">
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">GK PhotoGraphy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+        <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+</nav>
+
+<div class="container-fluid p-0">
+    <img src="https://img.freepik.com/premium-photo/retro-camera-black-glasses-autumn-leaves-arranged-brown-surface-evoking-cozy-fall-atmosphere_29120-43214.jpg?ga=GA1.1.1023018353.1739795443&semt=ais_hybrid" class="banner img-fluid" alt="Banner Image">
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Photo Gallery</h2>
+    <div class="row gallery">
+        <div class="col-md-3 mb-4">
+            <img src="https://img.freepik.com/free-photo/mid-section-woman-holding-digital-camera_107420-96191.jpg?ga=GA1.1.1023018353.1739795443&semt=ais_hybrid" alt="Photo 1">
+        </div>
+        <div class="col-md-3 mb-4">
+            <img src="https://img.freepik.com/free-photo/overhead-view-photos-text-surrounded-with-camera-accessories-heartshape-marble-background_23-2148038926.jpg?ga=GA1.1.1023018353.1739795443&semt=ais_hybrid" alt="Photo 2">
+        </div>
+        <div class="col-md-3 mb-4">
+            <img src="https://img.freepik.com/premium-photo/camera_225446-2092.jpg?ga=GA1.1.1023018353.1739795443&semt=ais_hybrid" alt="Photo 3">
+        </div>
+        <div class="col-md-3 mb-4">
+            <img src="https://img.freepik.com/free-photo/camera-bag-hanging-bench_23-2147833145.jpg?ga=GA1.1.1023018353.1739795443&semt=ais_hybrid" alt="Photo 4">
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Session Checking -->
+<script>
+function checkSession() {
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "index.html"; // Redirect to login if not logged in
+    }
+}
+
+function logout() {
+    sessionStorage.removeItem("isLoggedIn"); // Clear session
+    window.location.href = "index.html"; // Redirect to login
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
